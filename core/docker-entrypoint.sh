@@ -27,4 +27,5 @@ else
    echo "No crontab secret provided"
 fi
 
+# Keep the container alive as no service is actually running
 tail -f /dev/null
