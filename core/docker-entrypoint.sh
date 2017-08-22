@@ -1,4 +1,4 @@
-#!/bin/sh -xe
+#!/bin/sh
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/s3cmd"
 mkdir /test
@@ -28,3 +28,5 @@ if [ -f /run/secrets/crontab ]; then
 else
    echo "No crontab secret provided"
 fi
+
+ping 127.0.0.1
