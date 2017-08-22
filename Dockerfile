@@ -23,3 +23,4 @@ RUN mkdir /opt/bk /opt/www
 RUN chmod 777 /opt/docker-entrypoint.sh && chmod +x /opt/docker-entrypoint.sh
 
 CMD ["/opt/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/sh"]
