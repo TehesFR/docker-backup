@@ -1,7 +1,7 @@
 #!/bin/sh -xe
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/s3cmd"
-
+mkdir /test
 # Copy secret s3cfg file over to the default location where S3cmd is looking for the config file
 if [ -f /run/secrets/s3cfg ]; then
    echo "Using secret s3cfg"

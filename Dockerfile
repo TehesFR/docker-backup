@@ -14,7 +14,6 @@ RUN git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd
 RUN ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
 
 # Add docker-entrypoint
-WORKDIR /opt
 ADD ./core/docker-entrypoint.sh /opt/docker-entrypoint.sh
 
 # Folders for backups operations
@@ -23,5 +22,4 @@ RUN mkdir /opt/bk /opt/www
 # Main entrypoint script
 RUN chmod 777 /opt/docker-entrypoint.sh && chmod +x /opt/docker-entrypoint.sh
 
-WORKDIR /
 CMD ["/opt/docker-entrypoint.sh"]
