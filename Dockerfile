@@ -11,7 +11,7 @@ RUN apk del tzdata
 
 # Install s3cmd
 RUN git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd
-RUN cd /opt/s3cmd && git checkout 1.6.1
+RUN cd /opt/s3cmd && git checkout tags/1.6.1
 RUN ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
 
 # Add docker-entrypoint
