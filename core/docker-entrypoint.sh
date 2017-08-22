@@ -29,4 +29,4 @@ else
    echo "No crontab secret provided"
 fi
 
-ping 127.0.0.1
+tail -f /dev/null
