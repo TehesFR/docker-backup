@@ -1,11 +1,19 @@
 #!/bin/sh
 
-# Copy secret s3cfg file over to the default location where S3cmd is looking for the config file
-if [ -f /run/secrets/s3cfg ]; then
-   echo "Using secret s3cfg"
-   cp /run/secrets/s3cfg /root/.s3cfg
+# Copy secret awscli config file 
+if [ -f /run/secrets/awscli_config ]; then
+   echo "Using secret awscli_config"
+   cp /run/secrets/awscli_config /root/.aws/config
 else
-   echo "No s3cfg secret provided"
+   echo "No awscli_config secret provided"
+fi
+
+# Copy secret awscli credentials file 
+if [ -f /run/secrets/awscli_credentials ]; then
+   echo "Using secret awscli_credentials"
+   cp /run/secrets/awscli_credentials /root/.aws/credentials
+else
+   echo "No awscli_credentials secret provided"
 fi
 
 # Copy secret my.cnf file for mysqldump
@@ -27,5 +35,5 @@ else
    echo "No crontab secret provided"
 fi
 
-# Keep the container alive as no service is actually running
-tail -f /dev/null
+# Keep the container alive running cron daemon
+crond -f

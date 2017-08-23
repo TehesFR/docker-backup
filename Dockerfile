@@ -9,10 +9,9 @@ RUN cp /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN echo "Europe/Paris" > etc/timezone
 RUN apk del tzdata
 
-# Install s3cmd
-RUN git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd
-RUN cd /opt/s3cmd && git checkout tags/v1.6.1
-RUN ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
+# Install awscli
+RUN pip install --upgrade awscli
+RUN mkdir /root/.aws
 
 # Add docker-entrypoint
 ADD ./core/docker-entrypoint.sh /opt/docker-entrypoint.sh
